@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ATI atlas/operator registry record v0.1",
+  "type": "object",
+  "required": ["registry_version","representation_id","status","source","coordinate_model","operator"],
+  "properties": {
+    "registry_version": {"const":"ATI-operator-registry-v0.1"},
+    "representation_id": {"type":"string"},
+    "status": {"enum":["ELIGIBLE","INELIGIBLE","PENDING","UNKNOWN"]},
+    "source": {
+      "type":"object",
+      "required":["name","version_or_release","license_status","source_uri_or_identifier"],
+      "properties": {
+        "name":{"type":"string"},"version_or_release":{"type":"string"},
+        "license_status":{"type":"string"},"source_uri_or_identifier":{"type":"string"},
+        "source_sha256":{"type":["string","null"]}
+      }
+    },
+    "coordinate_model": {
+      "type":"object",
+      "required":["modality","space","resolution","orientation","latent_domain_id"],
+      "properties": {
+        "modality":{"type":"string"},"space":{"type":"string"},"resolution":{"type":"string"},
+        "orientation":{"type":"string"},"latent_domain_id":{"type":"string"},
+        "affine_or_transform_hash":{"type":["string","null"]},"interpolation_policy":{"type":"string"}
+      }
+    },
+    "operator": {
+      "type":"object",
+      "required":["realized_rows","latent_dimension","weighting","normalization","operator_sha256"],
+      "properties": {
+        "realized_rows":{"type":"integer","minimum":0},"latent_dimension":{"type":"integer","minimum":0},
+        "weighting":{"type":"string"},"normalization":{"type":"string"},
+        "operator_sha256":{"type":["string","null"]},"empty_rows":{"type":"array","items":{"type":"integer"}}
+      }
+    },
+    "eligibility_evidence": {"type":"array","items":{"type":"string"}},
+    "exclusion_reason": {"type":["string","null"]}
+  }
+}

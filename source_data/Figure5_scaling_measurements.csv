@@ -1,0 +1,11 @@
+Source_rows,Target_rows,Latent_n,Case,Median_seconds,Peak_MiB
+256,128,902629,nested_exact,0.055,58.79
+256,128,902629,orthogonal_nonexact,0.057,58.45
+384,192,902629,nested_exact,0.176,64.09
+384,192,902629,orthogonal_nonexact,0.176,64.45
+512,256,902629,nested_exact,0.38,70.45
+512,256,902629,orthogonal_nonexact,0.387,71.55
+601,300,902629,nested_exact,0.618,76.62
+601,300,902629,orthogonal_nonexact,0.721,78.09
+601,300,5000000,nested_exact,0.758,76.71
+601,300,5000000,orthogonal_nonexact,0.713,77.48

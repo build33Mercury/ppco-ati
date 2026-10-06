@@ -1,0 +1,3 @@
+Cohort,Estimate,CI_low,CI_high,Sensitivity
+ABIDE TRAIN,-0.005403,-0.009622,-0.001097,equal-site includes 0; leave-NYU-out = +0.002199
+HCP external,-0.0565852,-0.0610012,-0.0521158,99/99 subject-collapsed negative; 16/20 transfer negative

@@ -1,0 +1,11 @@
+{
+  "claim_ceiling": "Measured performance only. HCP-scale path uses sparse operator Gram blocks; no dense 902629x902629 projector is formed. No extrapolation beyond tested row dimensions/hardware.",
+  "real_20pair_process_rss_baseline_bytes": 61542400,
+  "real_20pair_process_rss_delta_bytes": 3579904,
+  "real_20pair_process_rss_peak_bytes": 65122304,
+  "real_20pair_total_seconds": 1.1179957999993348,
+  "real_pair_count": 20,
+  "rss_measurement": "PROCESS_WORKING_SET_SAMPLED_DURING_CASE",
+  "status": "PASS_MEASURED_RANGE",
+  "synthetic_case_rows": 14
+}

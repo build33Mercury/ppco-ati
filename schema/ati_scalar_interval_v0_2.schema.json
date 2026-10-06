@@ -1,0 +1,20 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://example.org/ati/scalar-interval-v0.2.schema.json",
+  "title":"ATI scalar target-variance interval v0.2 hardening candidate",
+  "type":"object",
+  "required":["schema_version","estimand","status","source_status","rtol","atol","stability_factor","upper_unbounded"],
+  "properties":{
+    "schema_version":{"const":"ATI-scalar-interval-v0.2"},
+    "estimand":{"const":"scalar_target_variance_b_K_bT"},
+    "status":{"enum":["EXACT_WITHIN_NUMERICAL_MODEL","BOUNDED_TRACE_CONSTRAINED","UNBOUNDED_UPPER","INFEASIBLE_SOURCE_COVARIANCE","INFEASIBLE_TRACE_BOUND","UNKNOWN_NUMERICAL"]},
+    "source_status":{"enum":["FEASIBLE","INFEASIBLE_SOURCE_COVARIANCE","UNKNOWN_NUMERICAL"]},
+    "source_feasible":{"type":["boolean","null"]},
+    "lower":{"type":["number","null"]},"upper":{"type":["number","null"]},"upper_unbounded":{"type":"boolean"},
+    "tau":{"type":["number","null"],"minimum":0},"rtol":{"type":"number","exclusiveMinimum":0},"atol":{"type":"number","minimum":0},"stability_factor":{"type":"number","exclusiveMinimum":1},
+    "identified_source_component_variance":{"type":"number","minimum":0},"target_hidden_component_norm2":{"type":"number","minimum":0},"minimum_latent_trace_consistent_with_source":{"type":"number"},
+    "remaining_trace_budget":{"type":["number","null"]},"source_covariance_symmetry_status":{"type":"string"},"source_covariance_asymmetry_norm2":{"type":["number","null"]},"hidden_component_status":{"type":"string"},
+    "warning":{"type":"string"},"reason":{"type":"string"},"numerical_policy":{"type":"object"},"endpoint_verification":{"type":"object"}
+  },
+  "additionalProperties":true
+}

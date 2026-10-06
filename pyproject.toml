@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ati-reference"
+version = "0.4.0rc6"
+description = "Prospective reference implementation for Atlas Transfer Identifiability certificates"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.24"]
+authors = [{name = "PPCO / ATI project"}]
+license = {text = "BSD-3-Clause"}
+
+
+[project.optional-dependencies]
+exact = ["sympy>=1.12"]
+test = ["pytest>=8", "jsonschema>=4", "sympy>=1.12"]
+
+[project.scripts]
+ati-certify = "ati.cli:main"
+ati-identify-scalar = "ati.interval_cli:main"
+
+[tool.setuptools]
+packages = ["ati"]

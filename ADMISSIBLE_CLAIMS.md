@@ -9,4 +9,4 @@
 7. The current five-atlas 601-dimensional representation is universal only for that frozen target family, not for arbitrary future scientific questions.
 8. Visium provides a second-domain operator illustration of exact aggregation and irreversible reverse aggregation; it does not establish broad biological generality.
 9. CoRR narrowing is evidence of pre-outcome source/provenance discipline, not an empirical result.
-10. ATI Reference rc6 provides independently verifiable fail-closed numerical certificates for declared digital operators, with UNKNOWN when the numerical contract cannot certify a decision.
+10. ATI Reference 0.4.0rc6 provides independently verifiable fail-closed numerical certificates for declared digital operators, with UNKNOWN when the numerical contract cannot certify a decision; rc6 is a release-only successor to the numerically validated rc5 authority and was directly rerun through the complete validation wall.

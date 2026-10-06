@@ -1,0 +1,23 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://example.org/ati/certificate-v0.3.schema.json",
+  "title":"ATI numerical certificate v0.3 hardening candidate",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["schema_version","producer_version","source","target","observation_model","admissible_latent_family","numerical_policy","numerics","claim","verification"],
+  "properties":{
+    "schema_version":{"const":"ATI-certificate-v0.3"},
+    "producer_version":{"type":"string"},
+    "source":{"$ref":"#/$defs/operatorIdentity"},
+    "target":{"$ref":"#/$defs/operatorIdentity"},
+    "observation_model":{"const":"covariance_congruence_C_equals_W_K_WT"},
+    "admissible_latent_family":{"const":"all_real_symmetric_PSD_K"},
+    "numerical_policy":{"type":"object","required":["policy_id","rtol","atol","stability_factor"],"properties":{"policy_id":{"const":"ATI-numerics-v0.4-rc2"},"rtol":{"type":"number","exclusiveMinimum":0,"maximum":1e-6},"atol":{"type":"number","minimum":0,"maximum":1e-8},"stability_factor":{"type":"number","exclusiveMinimum":1,"maximum":1000},"rank_threshold":{"type":"string"},"zero_nonzero_decision":{"type":"string"}},"additionalProperties":false},
+    "numerics":{"type":"object","required":["status","rank_A","rank_B"],"properties":{"status":{"enum":["EXACT_WITHIN_NUMERICAL_MODEL","NONEXACT_WITHIN_NUMERICAL_MODEL","UNKNOWN_NUMERICAL"]},"rowspace_residual_norm2":{"type":["number","null"]},"rowspace_residual_relative":{"type":["number","null"]},"factorization_residual_norm2":{"type":["number","null"]},"factorization_residual_relative":{"type":["number","null"]},"rank_A":{"type":"integer","minimum":0},"rank_B":{"type":"integer","minimum":0},"missing_dimension_numerical":{"type":["integer","null"],"minimum":0},"principal_angles_radians":{"type":"array","items":{"type":"number"}}},"additionalProperties":false},
+    "claim":{"type":"object","required":["ati_class","permitted","prohibited"],"properties":{"ati_class":{"type":"string"},"permitted":{"type":"array","items":{"type":"string"}},"prohibited":{"type":"array","items":{"type":"string"}}},"additionalProperties":false},
+    "exact_map":{"type":"object","required":["M"],"properties":{"M":{"type":"array","items":{"type":"array","items":{"type":"number"}}}},"additionalProperties":false},
+    "no_go_witness":{"type":"object","required":["v","A_v_norm2","B_v_norm2"],"properties":{"v":{"type":"array","items":{"type":"number"}},"A_v_norm2":{"type":"number","minimum":0},"B_v_norm2":{"type":"number","minimum":0}},"additionalProperties":false},
+    "verification":{"type":"object","required":["producer_self_check","independent_verifier_required","verifier_must_ignore_producer_tolerances_for_acceptance"],"properties":{"producer_self_check":{"type":"boolean"},"independent_verifier_required":{"type":"boolean"},"verifier_must_ignore_producer_tolerances_for_acceptance":{"type":"boolean"},"independent_verifier_result":{"type":"object"}},"additionalProperties":false}
+  },
+  "$defs":{"operatorIdentity":{"type":"object","additionalProperties":false,"required":["id","shape","operator_sha256"],"properties":{"id":{"type":"string"},"shape":{"type":"array","minItems":2,"maxItems":2,"items":{"type":"integer","minimum":0}},"operator_sha256":{"type":"string","pattern":"^[0-9a-f]{64}$"}}}}
+}
