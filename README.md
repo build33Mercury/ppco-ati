@@ -1,6 +1,6 @@
 # Atlas Transfer Identifiability (ATI)
 
-Reference software for **Atlas Transfer Is an Inverse Problem: Identifiability and Partial Inference for Functional Connectomes**, a research manuscript in preparation.
+Reference software for operator-specific identifiability analysis in functional-connectome atlas transfer. The associated manuscript is being retargeted for *Neuroinformatics* and remains an unsubmitted research draft.
 
 ATI evaluates claims about transfer between declared linear representations. Given specified source and target operators, it distinguishes universally exact recovery from non-identifiability and model-assisted prediction. Its certificates are conditional on the supplied operators and observation model. The general row-space criterion and associated inverse-problem mathematics are established results; this project applies them to specified digital atlas operators and supplies numerical verification tools.
 
@@ -42,7 +42,7 @@ See [scientific claims](ADMISSIBLE_CLAIMS.md) and the [atlas data policy](ATLAS_
 
 ## Data and reproducibility
 
-This repository contains the ATI reference library, tests, protocols, aggregate figure values and selected validation evidence. It **does not contain the complete ABIDE/HCP benchmark workflow or a clean-room, raw-input replay package**. Participant imaging, source atlas images and derived project operator matrices are not included. Eligible users must obtain provider data through the relevant access routes and comply with their terms. The seven identified ABIDE atlas resource files can be independently acquired from the pinned upstream repository; that availability does not establish redistribution rights for the atlas binaries.
+This repository contains the ATI reference library, tests, protocols, aggregate figure values and selected validation evidence. It **does not contain the complete ABIDE/HCP benchmark workflow or an independent raw-input replay package**. Participant imaging, source atlas images and derived project operator matrices are not included. Eligible users must obtain provider data through the relevant access routes and comply with their terms. The seven identified ABIDE atlas resource files can be independently acquired from the pinned upstream repository; that availability does not establish redistribution rights for the atlas binaries.
 
 The immutable software tag `v0.4.0-rc6` identifies the archived reference implementation. The current default branch may receive documentation corrections without changing that tag. The manuscript and supplementary information describe the numerical results, adverse findings and remaining reproducibility limits; this repository should not be cited as a complete reproduction of the participant-level study.
 
