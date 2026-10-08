@@ -1,12 +1,16 @@
-# 21 MANUSCRIPT ADMISSIBLE CLAIMS
+# Scientific scope and supported claims
 
-1. For a declared fixed linear observation model C_W = W K W^T, row-space containment characterizes universal exact covariance recoverability. This is classical foundation applied here, not claimed as new mathematics.
-2. The ATI framework separates exact algebraic support, bounded/model/prior-assisted inference, unbounded non-identifiability and abstention so that representation conversion, recovery and prediction are not conflated.
-3. For the five frozen digital HCP atlas operators, all 20 ordered transfers are nonexact under unrestricted PSD K and the stacked support rank is exactly 601; exact support algebra independently verifies this finite-instance claim.
-4. PPCO is a model-identified estimator. Frozen HCP evidence does not support PPCO superiority.
-5. Prediction quality can remain nontrivial even when universal recovery is impossible; the connectome benchmarks provide domain evidence for a distinction already recognized in broader inverse-problem literature.
-6. Prospective archive design can preserve recoverability for a DECLARED target family by retaining the missing linear span and its full joint covariance, including source-added cross-covariance.
-7. The current five-atlas 601-dimensional representation is universal only for that frozen target family, not for arbitrary future scientific questions.
-8. Visium provides a second-domain operator illustration of exact aggregation and irreversible reverse aggregation; it does not establish broad biological generality.
-9. CoRR narrowing is evidence of pre-outcome source/provenance discipline, not an empirical result.
-10. ATI Reference 0.4.0rc6 provides independently verifiable fail-closed numerical certificates for declared digital operators, with UNKNOWN when the numerical contract cannot certify a decision; rc6 is a release-only successor to the numerically validated rc5 authority and was directly rerun through the complete validation wall.
+This document describes what the current evidence supports. The manuscript supplies methods, definitions and numerical details.
+
+1. Under a declared fixed linear observation model, row-space containment characterizes universal exact covariance recovery. This is established mathematics applied to the specified operators here.
+2. ATI distinguishes exact recovery, conditional or bounded inference, non-identifiability and numerical abstention. Model-assisted prediction is identified as such.
+3. The 20 ordered transfers among five frozen digital HCP atlas operators are nonexact under unrestricted positive semidefinite covariance, conditional on those operators and the stated observation model. The stacked support rank is 601.
+4. PPCO is a model-assisted estimator. The frozen HCP results do not support PPCO superiority; the ABIDE contrast is sensitive to site composition.
+5. Prediction can be feasible even when universal recovery is impossible. This conceptual distinction is established in inverse-problem work; the connectome results illustrate it in a specified setting.
+6. Prospective archive design can preserve recoverability for a declared target family by retaining its missing linear span and full joint covariance, including cross-covariances.
+7. The 601-dimensional five-atlas representation is universal only for that fixed target family and observation model.
+8. The Visium example illustrates aggregation and irreversible reverse aggregation. It does not establish general performance across biological domains.
+9. CoRR is discussed as a data-source decision. It was not used for outcome evaluation.
+10. The reference software provides certificates for declared digital operators. A numerical `UNKNOWN` state is appropriate when its certification contract cannot resolve a decision. Its tests and synthetic examples are not an independent reproduction of participant-level ABIDE/HCP processing.
+
+The later subject-mask sensitivity used information available after the initial HCP benchmark. It remains a sensitivity result and does not replace an untouched external validation. Data rights, ethics documentation and full benchmark replay remain separate from software correctness.
