@@ -1,9 +1,10 @@
 cff-version: 1.2.0
-message: "If you use ATI Reference, please cite the accompanying manuscript and software release."
+message: "Please cite this software when using ATI Reference. Cite the manuscript separately if and when it is published."
 title: "ATI Reference"
 type: software
 version: 0.4.0rc7
 license: BSD-3-Clause
 authors:
-  - name: "Abdsalam Bitar"
+  - family-names: Bitar
+    given-names: Abdsalam
 repository-code: "https://github.com/build33Mercury/ppco-ati"

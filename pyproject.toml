@@ -9,7 +9,7 @@ description = "Prospective reference implementation for Atlas Transfer Identifia
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = ["numpy>=1.24"]
-authors = [{name = "PPCO / ATI project"}]
+authors = [{name = "Abdsalam Bitar"}]
 license = {text = "BSD-3-Clause"}
 
 
