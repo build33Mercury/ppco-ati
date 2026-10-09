@@ -1,8 +1,0 @@
-{
-  "claim_action": "If sensitivity is observed, restrict exact/no-go claims to frozen hashed digital operators and treat real-pipeline transfer as conditional/approximate.",
-  "important_scope": "These are predeclared digital-operator stress tests. Integer/half-voxel shifts approximate discretization/registration mismatch on the 91x109x91 grid; dropout/jitter are uncalibrated support/weight stresses. They are not an empirical distribution of registration error and cannot establish biological operator exactness.",
-  "nonself_pair_evaluations": 360,
-  "scenario_count": 18,
-  "self_control_evaluations": 90,
-  "status": "PASS_WITH_OPERATOR_SENSITIVITY_NARROW_TO_FROZEN_INSTANCE"
-}

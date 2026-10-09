@@ -1,10 +1,11 @@
 from __future__ import annotations
-import hashlib, json
+import json
 from pathlib import Path
 import numpy as np
 
 ROOT=Path(__file__).resolve().parents[1]
-PROTOCOL=ROOT/'protocols'/'03_PREDICTION_VS_RECOVERY_PROTOCOL.md'
+# Historical specification digest retained without bundling internal protocol documents.
+PROTOCOL_SHA256='7d7987fb531b1ec72c904bcdd4931371803c2a84fcd75a9c58fe6b80c9fa2c19'
 SEED=20261001
 rng=np.random.default_rng(SEED)
 
@@ -33,12 +34,13 @@ A=np.array([[1.,0.]]); B=np.array([[0.,1.]]); v=np.array([0.,1.]); K0=np.diag([1
 source0=(A@K0@A.T).tolist(); source1=(A@K1@A.T).tolist(); target0=(B@K0@B.T).tolist(); target1=(B@K1@B.T).tolist()
 report={
   'status':'PASS','type':'PROSPECTIVE_SYNTHETIC_DEVELOPMENT_DEMO','seed':SEED,
-  'protocol_sha256':hashlib.sha256(PROTOCOL.read_bytes()).hexdigest(),
+  'protocol_sha256':PROTOCOL_SHA256,
   'model':{'intercept':float(beta[0]),'slope':float(beta[1])},
   'iid_test':metrics(yid,pid),'shift_test':metrics(ysh,psh),
   'source_distribution':{'iid_mean':float(xid.mean()),'shift_mean':float(xsh.mean()),'iid_std':float(xid.std()),'shift_std':float(xsh.std())},
   'witness_demo':{'A_v_norm':float(np.linalg.norm(A@v)),'B_v_norm':float(np.linalg.norm(B@v)),'source_before':source0,'source_after':source1,'target_before':target0,'target_after':target1},
   'interpretation_ceiling':'Development demonstration only; not a real-data comparator or manuscript claim until independently audited and integrated under the official plan.'
 }
-(ROOT/'PREDICTION_VS_RECOVERY_DEVELOPMENT_RESULT.json').write_text(json.dumps(report,indent=2),encoding='utf-8')
+(ROOT/'verification_outputs').mkdir(parents=True,exist_ok=True)
+(ROOT/'verification_outputs'/'prediction_vs_recovery.json').write_text(json.dumps(report,indent=2),encoding='utf-8')
 print(json.dumps(report,indent=2))

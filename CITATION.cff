@@ -1,9 +1,8 @@
 cff-version: 1.2.0
 message: "Please cite this software when using ATI Reference. Cite the manuscript separately if and when it is published."
-title: "ATI Reference: Atlas Transfer Identifiability"
+title: "ATI Reference"
 type: software
-version: 0.4.0rc6
-date-released: 2026-10-05
+version: 0.4.0rc7
 license: BSD-3-Clause
 authors:
   - family-names: Bitar

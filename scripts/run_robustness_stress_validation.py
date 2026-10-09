@@ -44,7 +44,7 @@ run('gram_vs_direct_contract',2000,gram_case)
 def tamper_case(i):
     A=np.array([[1.,0.,0.],[0.,1.,0.]]); B=np.array([[0.,0.,1.]])
     c=generate_certificate(A,B)
-    # adversarially convert witness cert to a fake exact cert and perturb declared producer tolerance over wide finite values
+    # deliberately convert witness cert to a fake exact cert and perturb declared producer tolerance over wide finite values
     c.pop('no_go_witness',None); c['exact_map']={'M':[[0.,0.]]}; c['claim']['ati_class']='ATI0_EXACT_ALGEBRAIC_NUMERICALLY_SUPPORTED'
     c['numerical_policy']['rtol']=float(10**rng.uniform(-15,-1))
     v=verify_certificate(c,A,B); assert not v['verified']
@@ -92,7 +92,8 @@ for exp in np.linspace(-13,-8,101):
     eps=float(10**exp); A=np.array([[1.,0.]]); B=np.array([[1.,eps]]); x=exact_recovery_analysis(A,B); threshold.append({'eps':eps,'status':x['numerical_status']})
 counts['threshold_sweep']={'attempted':101,'passed':101,'failed':0}
 
-out={'artifact':'ATI v0.4.0-rc6 adversarial stress','classification':'PASS' if not failures else 'FAIL','counts':counts,'failure_count':len(failures),'failures':failures[:50],'threshold_sweep':threshold,'python':sys.version,'numpy':np.__version__,'platform':platform.platform()}
-Path('ADVERSARIAL_STRESS_V04RC6.json').write_text(json.dumps(out,indent=2,sort_keys=True))
+out={'artifact':'ATI Reference 0.4.0rc7 robustness stress validation','classification':'PASS' if not failures else 'FAIL','counts':counts,'failure_count':len(failures),'failures':failures[:50],'threshold_sweep':threshold,'python':sys.version,'numpy':np.__version__,'platform':platform.platform()}
+Path('verification_outputs').mkdir(parents=True,exist_ok=True)
+Path('verification_outputs/robustness_validation.json').write_text(json.dumps(out,indent=2,sort_keys=True))
 print(json.dumps({'classification':out['classification'],'counts':counts,'failure_count':len(failures)},indent=2))
 if failures: raise SystemExit(1)
