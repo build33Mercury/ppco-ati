@@ -1,7 +1,3 @@
 # License status
 
-ATI Reference 0.4.0rc6 is licensed under BSD-3-Clause.
-
-The software package does not vendor NumPy, SciPy, pytest, SymPy, or jsonschema source or binaries. Dependencies are installed separately and retain their own licenses.
-
-Atlas image files, derived atlas operator matrices, and participant-level datasets are excluded and are not licensed by this repository.
+ATI Reference **0.4.0rc7** source code is distributed under the repository BSD-3-Clause license. Third-party libraries are installed independently under their own licenses. No permission to redistribute participant imaging, restricted records, atlas images or atlas-derived operators follows from the software license. Public accessibility must be verified separately.

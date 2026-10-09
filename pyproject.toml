@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ati-reference"
-version = "0.4.0rc6"
+version = "0.4.0rc7"
 description = "Prospective reference implementation for Atlas Transfer Identifiability certificates"
 readme = "README.md"
 requires-python = ">=3.10"

@@ -1,51 +1,39 @@
-# Atlas Transfer Identifiability (ATI)
+# ATI Reference — 0.4.0rc7
 
-Reference software for operator-specific identifiability analysis in functional-connectome atlas transfer. The associated manuscript is being retargeted for *Neuroinformatics* and remains an unsubmitted research draft.
+**Software-only prerelease reference implementation; not a complete neuroimaging benchmark.**
 
-ATI evaluates claims about transfer between declared linear representations. Given specified source and target operators, it distinguishes universally exact recovery from non-identifiability and model-assisted prediction. Its certificates are conditional on the supplied operators and observation model. The general row-space criterion and associated inverse-problem mathematics are established results; this project applies them to specified digital atlas operators and supplies numerical verification tools.
+ATI Reference evaluates linear-operator atlas transfer: exact identifiability under a declared observation model, non-identifiability witnesses, finite-model numerical uncertainty (UNKNOWN), and conditional scalar identified intervals. Row-space containment and the linear algebra are classical; this code is a reference implementation and auditable claim-calibration workflow, not a new universal-recovery theorem.
 
-## Install and inspect
+## Install and independently check the reference code
 
-Python 3.10 or newer is required.
+Requires Python 3.10+ and NumPy 1.24+. In an isolated environment, install the local source (and, optionally, testing dependencies):
 
-```bash
-python -m pip install -e ".[exact,test]"
-python -m pytest -q
+```console
+python -m pip install .
+python -m pip install '.[test]'
+python -m pytest -q tests
 python examples/example_certificate.py
-ati-certify --help
-ati-identify-scalar --help
 ```
 
-The example uses small synthetic operators. It does not download imaging data or reproduce the paper's participant-level benchmark.
+The scripts `scripts/run_randomized_validation.py`, `scripts/run_robustness_stress_validation.py`, and `scripts/run_prediction_vs_recovery_demo.py` are synthetic/development tests. Run them only against a writable detached copy because some scripts write JSON receipts. Use `python scripts/run_randomized_validation.py --help` only if supported; inspect the source before altering any default seeds.
 
-## Repository contents
+CLI entry points after installation are `ati-certify` and `ati-identify-scalar`. The examples show their expected schema and status conventions. A numerical EXACT/NO-GO result applies to the *supplied hashed digital operators*; it is not a claim that the same status holds for an unverified subject-effective operator.
 
-| Location | Contents |
-| --- | --- |
-| `ati/` | Certificate construction, verification, numerical checks and command-line interfaces. |
-| `examples/`, `tests/` | A synthetic example and software tests. |
-| `schema/` | Machine-readable certificate and registry schemas. |
-| `protocols/` | Formal definitions, numerical checks and analysis specifications. |
-| `source_data/` | Aggregate values used for manuscript figures. |
-| `evidence/` | Archived software validation and finite-operator diagnostics. |
+## What this archive **does not** reproduce
 
-The historical evidence files retain their original identifiers so they can be matched to frozen reports. Those identifiers are not a recommended naming convention for new studies.
+It does not include participant-level data from ABIDE, HCP or CoRR; third-party atlas images; the proprietary or rights-unclear derived operator matrices; or the complete historical analysis environment and 670 external benchmark authorities. The archived PPCO/ATI benchmarking outcomes are **not reproducible merely by installing ATI Reference**. Separate historical audit receipts provide internal reconciliation, not an independent raw-imaging replay. No clinical validity or general performance advantage is claimed. The frozen benchmark's unfavorable HCP and site-sensitive ABIDE contrasts remain relevant.
 
-## Scope and limitations
+A public software release can be made independently from permitted data redistribution, but the accompanying manuscript must disclose the missing full benchmark reproduction route honestly. The repository URL is not evidence of public accessibility. Confirm repository visibility and release URL separately before claiming public availability.
 
-- Exact recovery claims concern the declared, hashed digital operators. An atlas name alone does not identify an operator after registration, interpolation, masking or weighting.
-- Predictive accuracy does not imply recovery of information lost by an observation operator.
-- PPCO is a model-assisted estimator. The reported ABIDE and HCP covariance comparisons do not establish general PPCO superiority. A later HCP masked-operator sensitivity was conducted after earlier results were known and is reported separately in the manuscript.
-- The five-atlas result is a finite-instance statement about those operators and the specified observation model. It is not a claim of biological validation or universal transfer across atlases.
+## Rights and provenance
 
-See [scientific claims](ADMISSIBLE_CLAIMS.md) and the [atlas data policy](ATLAS_DATA_POLICY.md) for the precise boundaries.
+Software code: BSD-3-Clause (see LICENSE). Third-party imaging and atlas inputs keep their original permissions; **this repository's license does not cover them**. Data acquisition and validation plans are in the accompanying detached R11 gate bundle, not in the released software itself.
 
-## Data and reproducibility
+## Status
 
-This repository contains the ATI reference library, tests, protocols, aggregate figure values and selected validation evidence. It **does not contain the complete ABIDE/HCP benchmark workflow or an independent raw-input replay package**. Participant imaging, source atlas images and derived project operator matrices are not included. Eligible users must obtain provider data through the relevant access routes and comply with their terms. The seven identified ABIDE atlas resource files can be independently acquired from the pinned upstream repository; that availability does not establish redistribution rights for the atlas binaries.
+The 0.4.0rc7 source descends from reviewed rc6 reference code plus packaging, documentation, and smoke-test repairs. It is **not** a raw-imaging reproduction package. Historical `v0.4.0-rc6` receipts refer to that earlier version and must not be represented as newly executed rc7 benchmarks. The repository's public accessibility and release state must be checked at the final cited URL.
 
-The immutable software tag `v0.4.0-rc6` identifies the archived reference implementation. The current default branch may receive documentation corrections without changing that tag. The manuscript and supplementary information describe the numerical results, adverse findings and remaining reproducibility limits; this repository should not be cited as a complete reproduction of the participant-level study.
 
-## Citation and license
+## Integrity manifests
 
-Use [CITATION.cff](CITATION.cff) for the software citation. The manuscript has no publication DOI at present. The ATI software is BSD-3-Clause licensed; this license does not cover provider imaging or third-party atlases. See [LICENSE](LICENSE) and [third-party notices](THIRD_PARTY_NOTICES.md).
+`PUBLIC_SAFE_SHA256SUMS.txt` verifies the current source-release tree excluding the manifest itself, any build output and Git internals. Older rc6 provenance files, if retained, describe rc6 only.

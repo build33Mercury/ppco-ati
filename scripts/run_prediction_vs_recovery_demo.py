@@ -4,7 +4,7 @@ from pathlib import Path
 import numpy as np
 
 ROOT=Path(__file__).resolve().parents[1]
-PROTOCOL=ROOT/'protocols'/'03_PREDICTION_VS_RECOVERY_PROTOCOL.md'
+PROTOCOL=ROOT/'protocols'/'03_PREDICTION_AND_RECOVERY_PROTOCOL.md'
 SEED=20261001
 rng=np.random.default_rng(SEED)
 

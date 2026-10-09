@@ -1,0 +1,6 @@
+Perturbation family,Self_exact,Self_total,Fraction_exact
+Spatial target shift ±1 voxel,0,30,0.0
+Linear interpolation shift ±0.5 voxel,0,30,0.0
+Support dropout 1%/5%,0,10,0.0
+Within-support weight stress,0,15,0.0
+Positive row rescaling control,5,5,1.0

@@ -1,11 +1,9 @@
 cff-version: 1.2.0
-message: "Please cite this software when using ATI Reference. Cite the manuscript separately if and when it is published."
-title: "ATI Reference: Atlas Transfer Identifiability"
+message: "If you use ATI Reference, please cite the accompanying manuscript and software release."
+title: "ATI Reference"
 type: software
-version: 0.4.0rc6
-date-released: 2026-10-05
+version: 0.4.0rc7
 license: BSD-3-Clause
 authors:
-  - family-names: Bitar
-    given-names: Abdsalam
+  - name: "Abdsalam Bitar"
 repository-code: "https://github.com/build33Mercury/ppco-ati"

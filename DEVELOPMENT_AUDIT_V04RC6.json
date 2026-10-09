@@ -1,0 +1,179 @@
+{
+  "artifact": "ATI v0.4.0-rc6 randomized numerical validation",
+  "classification": "PASS",
+  "counts": {
+    "exact_nested": {
+      "attempted": 500,
+      "failed": 0,
+      "passed": 500
+    },
+    "exact_rational_containment": {
+      "attempted": 200,
+      "failed": 0,
+      "passed": 200
+    },
+    "minimal_augmentation": {
+      "attempted": 500,
+      "failed": 0,
+      "passed": 500
+    },
+    "nonnested": {
+      "attempted": 500,
+      "failed": 0,
+      "passed": 500
+    },
+    "perturbation_sweeps": {
+      "attempted": 2,
+      "failed": 0,
+      "passed": 2
+    },
+    "scalar_identified_interval": {
+      "attempted": 1000,
+      "failed": 0,
+      "passed": 1000
+    },
+    "trace_projection_bound": {
+      "attempted": 2000,
+      "failed": 0,
+      "passed": 2000
+    },
+    "universal_representation": {
+      "attempted": 200,
+      "failed": 0,
+      "passed": 200
+    }
+  },
+  "date": "2026-10-04",
+  "development_only": true,
+  "failures": [],
+  "interpretation": "Randomized numerical validation only. Not formal proof or real-atlas empirical validation.",
+  "numpy": "2.3.5",
+  "perturbation_exact_fixture": {
+    "atol": 1e-12,
+    "observed_statuses": [
+      "EXACT_WITHIN_NUMERICAL_MODEL",
+      "NONEXACT_WITHIN_NUMERICAL_MODEL",
+      "UNKNOWN_NUMERICAL"
+    ],
+    "perturb_source": true,
+    "perturb_target": true,
+    "rows": [
+      {
+        "epsilon_relative_fro": 0.0,
+        "residual_relative_max": 0.0,
+        "residual_relative_median": 0.0,
+        "residual_relative_min": 0.0,
+        "status_counts": {
+          "EXACT_WITHIN_NUMERICAL_MODEL": 1,
+          "NONEXACT_WITHIN_NUMERICAL_MODEL": 0,
+          "UNKNOWN_NUMERICAL": 0
+        },
+        "trials": 1
+      },
+      {
+        "epsilon_relative_fro": 1e-12,
+        "residual_relative_max": 1.7119017113147865e-12,
+        "residual_relative_median": 8.227318034912871e-13,
+        "residual_relative_min": 6.942956765792017e-15,
+        "status_counts": {
+          "EXACT_WITHIN_NUMERICAL_MODEL": 25,
+          "NONEXACT_WITHIN_NUMERICAL_MODEL": 0,
+          "UNKNOWN_NUMERICAL": 0
+        },
+        "trials": 25
+      },
+      {
+        "epsilon_relative_fro": 1e-10,
+        "residual_relative_max": 1.6105190635073986e-10,
+        "residual_relative_median": 3.8030609757283534e-11,
+        "residual_relative_min": 2.6087882109983227e-12,
+        "status_counts": {
+          "EXACT_WITHIN_NUMERICAL_MODEL": 3,
+          "NONEXACT_WITHIN_NUMERICAL_MODEL": 0,
+          "UNKNOWN_NUMERICAL": 22
+        },
+        "trials": 25
+      },
+      {
+        "epsilon_relative_fro": 1e-08,
+        "residual_relative_max": 2.0608185622201244e-08,
+        "residual_relative_median": 6.608004609615403e-09,
+        "residual_relative_min": 6.701149333634732e-10,
+        "status_counts": {
+          "EXACT_WITHIN_NUMERICAL_MODEL": 0,
+          "NONEXACT_WITHIN_NUMERICAL_MODEL": 23,
+          "UNKNOWN_NUMERICAL": 2
+        },
+        "trials": 25
+      }
+    ],
+    "rtol": 1e-10,
+    "seed": 20261001,
+    "stability_factor": 10.0,
+    "warning": "Generic numerical/operator perturbation stress test; not calibrated registration uncertainty."
+  },
+  "perturbation_nonexact_fixture": {
+    "atol": 1e-12,
+    "observed_statuses": [
+      "NONEXACT_WITHIN_NUMERICAL_MODEL"
+    ],
+    "perturb_source": false,
+    "perturb_target": true,
+    "rows": [
+      {
+        "epsilon_relative_fro": 0.0,
+        "residual_relative_max": 1.0,
+        "residual_relative_median": 1.0,
+        "residual_relative_min": 1.0,
+        "status_counts": {
+          "EXACT_WITHIN_NUMERICAL_MODEL": 0,
+          "NONEXACT_WITHIN_NUMERICAL_MODEL": 1,
+          "UNKNOWN_NUMERICAL": 0
+        },
+        "trials": 1
+      },
+      {
+        "epsilon_relative_fro": 1e-12,
+        "residual_relative_max": 1.0,
+        "residual_relative_median": 1.0,
+        "residual_relative_min": 1.0,
+        "status_counts": {
+          "EXACT_WITHIN_NUMERICAL_MODEL": 0,
+          "NONEXACT_WITHIN_NUMERICAL_MODEL": 25,
+          "UNKNOWN_NUMERICAL": 0
+        },
+        "trials": 25
+      },
+      {
+        "epsilon_relative_fro": 1e-10,
+        "residual_relative_max": 1.0,
+        "residual_relative_median": 1.0,
+        "residual_relative_min": 1.0,
+        "status_counts": {
+          "EXACT_WITHIN_NUMERICAL_MODEL": 0,
+          "NONEXACT_WITHIN_NUMERICAL_MODEL": 25,
+          "UNKNOWN_NUMERICAL": 0
+        },
+        "trials": 25
+      },
+      {
+        "epsilon_relative_fro": 1e-08,
+        "residual_relative_max": 1.0,
+        "residual_relative_median": 1.0,
+        "residual_relative_min": 1.0,
+        "status_counts": {
+          "EXACT_WITHIN_NUMERICAL_MODEL": 0,
+          "NONEXACT_WITHIN_NUMERICAL_MODEL": 25,
+          "UNKNOWN_NUMERICAL": 0
+        },
+        "trials": 25
+      }
+    ],
+    "rtol": 1e-10,
+    "seed": 20261002,
+    "stability_factor": 10.0,
+    "warning": "Generic numerical/operator perturbation stress test; not calibrated registration uncertainty."
+  },
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]"
+}

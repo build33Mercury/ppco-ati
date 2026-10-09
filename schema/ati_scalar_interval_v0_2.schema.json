@@ -1,7 +1,7 @@
 {
   "$schema":"https://json-schema.org/draft/2020-12/schema",
   "$id":"https://example.org/ati/scalar-interval-v0.2.schema.json",
-  "title":"ATI scalar target-variance interval v0.2 hardening candidate",
+  "title":"ATI scalar target-variance interval v0.2",
   "type":"object",
   "required":["schema_version","estimand","status","source_status","rtol","atol","stability_factor","upper_unbounded"],
   "properties":{

@@ -1,7 +1,7 @@
 {
   "$schema":"https://json-schema.org/draft/2020-12/schema",
   "$id":"https://example.org/ati/certificate-v0.3.schema.json",
-  "title":"ATI numerical certificate v0.3 hardening candidate",
+  "title":"ATI numerical certificate v0.3",
   "type":"object",
   "additionalProperties":false,
   "required":["schema_version","producer_version","source","target","observation_model","admissible_latent_family","numerical_policy","numerics","claim","verification"],
