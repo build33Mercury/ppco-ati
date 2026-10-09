@@ -1,39 +1,55 @@
-# ATI Reference — 0.4.0rc7
+# ATI Reference
 
-**Software-only prerelease reference implementation; not a complete neuroimaging benchmark.**
+Reference software for **Atlas Transfer Identifiability (ATI)**, accompanying the research manuscript *Atlas Transfer Is an Inverse Problem: Identifiability and Partial Inference for Functional Connectomes* (manuscript in preparation for *Neuroinformatics*; not published).
 
-ATI Reference evaluates linear-operator atlas transfer: exact identifiability under a declared observation model, non-identifiability witnesses, finite-model numerical uncertainty (UNKNOWN), and conditional scalar identified intervals. Row-space containment and the linear algebra are classical; this code is a reference implementation and auditable claim-calibration workflow, not a new universal-recovery theorem.
+Version **0.4.0rc7** is a code-only prerelease. It implements numerical certificates for a **specified linear observation model and digital source/target operators**. Exact covariance recovery is assessed through the classical row-space inclusion criterion; the package also implements numerical non-identifiability checks, conditional scalar identified intervals, and an unresolved/abstention outcome when numerical assumptions are insufficient. These mathematical principles are established results, not new general theorems claimed by this software.
 
-## Install and independently check the reference code
+## Install
 
-Requires Python 3.10+ and NumPy 1.24+. In an isolated environment, install the local source (and, optionally, testing dependencies):
+Requires Python 3.10 or newer. From the source root:
 
-```console
+```bash
 python -m pip install .
-python -m pip install '.[test]'
-python -m pytest -q tests
+python -m ati.cli --help
+python -m ati.interval_cli --help
 python examples/example_certificate.py
 ```
 
-The scripts `scripts/run_randomized_validation.py`, `scripts/run_robustness_stress_validation.py`, and `scripts/run_prediction_vs_recovery_demo.py` are synthetic/development tests. Run them only against a writable detached copy because some scripts write JSON receipts. Use `python scripts/run_randomized_validation.py --help` only if supported; inspect the source before altering any default seeds.
+For tests and figure-generation dependencies:
 
-CLI entry points after installation are `ati-certify` and `ati-identify-scalar`. The examples show their expected schema and status conventions. A numerical EXACT/NO-GO result applies to the *supplied hashed digital operators*; it is not a claim that the same status holds for an unverified subject-effective operator.
+```bash
+python -m pip install '.[test]'
+python -m pytest -q tests
+python -m pip install '.[figures]'
+python scripts/make_submission_figures.py
+```
 
-## What this archive **does not** reproduce
+The two command-line programs are also installed as `ati-certify` and `ati-identify-scalar`.
 
-It does not include participant-level data from ABIDE, HCP or CoRR; third-party atlas images; the proprietary or rights-unclear derived operator matrices; or the complete historical analysis environment and 670 external benchmark authorities. The archived PPCO/ATI benchmarking outcomes are **not reproducible merely by installing ATI Reference**. Separate historical audit receipts provide internal reconciliation, not an independent raw-imaging replay. No clinical validity or general performance advantage is claimed. The frozen benchmark's unfavorable HCP and site-sensitive ABIDE contrasts remain relevant.
+## Repository contents
 
-A public software release can be made independently from permitted data redistribution, but the accompanying manuscript must disclose the missing full benchmark reproduction route honestly. The repository URL is not evidence of public accessibility. Confirm repository visibility and release URL separately before claiming public availability.
+| Directory | Purpose |
+| --- | --- |
+| `ati/` | Numerical identifiability analysis, verification, identified intervals, and CLI programs |
+| `tests/`, `examples/` | Software regression tests and a synthetic example |
+| `protocols/`, `schema/` | Mathematical specifications and machine-readable output schemas |
+| `source_data/` | Six distinct aggregate tables used for figures and benchmark summaries |
+| `scripts/` | Figure generation, synthetic checks, and scaling demonstrations |
+| `evidence/` | Small aggregate numerical-sensitivity and scaling records, including adverse findings |
 
-## Rights and provenance
+See [Scientific scope](SCIENTIFIC_SCOPE.md) for interpretation boundaries, [Reproducibility](REPRODUCIBILITY.md) for exactly what can and cannot be independently checked with this repository, [Data availability](DATA_AVAILABILITY.md) for data-access restrictions, and [Source data](source_data/README.md) for the figure tables.
 
-Software code: BSD-3-Clause (see LICENSE). Third-party imaging and atlas inputs keep their original permissions; **this repository's license does not cover them**. Data acquisition and validation plans are in the accompanying detached R11 gate bundle, not in the released software itself.
+## Scientific interpretation
 
-## Status
+- A certificate is valid only for the **supplied digital operators, declared observation model, and numerical tolerances**. It does not validate preprocessing choices, atlas provenance, or subject-specific effective masks.
+- Prediction under a model or prior does not establish universal information recovery. The row-space condition and related linear-algebra results are classical.
+- Frozen HCP covariance benchmark results do **not** support a general PPCO advantage; the ABIDE contrast is sensitive to site composition. The manuscript separately distinguishes prespecified results from later sensitivities.
+- Synthetic software tests and aggregate figure tables do **not** reproduce participant-level HCP or ABIDE analyses, establish biological validity, or support clinical use.
 
-The 0.4.0rc7 source descends from reviewed rc6 reference code plus packaging, documentation, and smoke-test repairs. It is **not** a raw-imaging reproduction package. Historical `v0.4.0-rc6` receipts refer to that earlier version and must not be represented as newly executed rc7 benchmarks. The repository's public accessibility and release state must be checked at the final cited URL.
+## Citation and licensing
 
+Use [`CITATION.cff`](CITATION.cff) when citing the software. Cite the manuscript separately only after it is available in a citable form. This repository includes no manuscript DOI.
 
-## Integrity manifests
+The authored software is distributed under the [BSD 3-Clause License](LICENSE), subject to the [license scope](LICENSE_SCOPE.md). Third-party datasets and atlases remain governed by their own terms. This software release neither bundles nor licenses their underlying image data.
 
-`PUBLIC_SAFE_SHA256SUMS.txt` verifies the current source-release tree excluding the manifest itself, any build output and Git internals. Older rc6 provenance files, if retained, describe rc6 only.
+Current source-file hashes are listed in [`SHA256SUMS.txt`](SHA256SUMS.txt). GitHub visibility and release availability must be confirmed at the actual repository URL before describing this source as publicly available.

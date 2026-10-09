@@ -16,6 +16,7 @@ license = {text = "BSD-3-Clause"}
 [project.optional-dependencies]
 exact = ["sympy>=1.12"]
 test = ["pytest>=8", "jsonschema>=4", "sympy>=1.12"]
+figures = ["pandas>=2", "matplotlib>=3.7"]
 
 [project.scripts]
 ati-certify = "ati.cli:main"

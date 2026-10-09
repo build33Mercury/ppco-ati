@@ -40,5 +40,6 @@ report={
   'witness_demo':{'A_v_norm':float(np.linalg.norm(A@v)),'B_v_norm':float(np.linalg.norm(B@v)),'source_before':source0,'source_after':source1,'target_before':target0,'target_after':target1},
   'interpretation_ceiling':'Development demonstration only; not a real-data comparator or manuscript claim until independently audited and integrated under the official plan.'
 }
-(ROOT/'PREDICTION_VS_RECOVERY_DEVELOPMENT_RESULT.json').write_text(json.dumps(report,indent=2),encoding='utf-8')
+(ROOT/'verification_outputs').mkdir(parents=True,exist_ok=True)
+(ROOT/'verification_outputs'/'prediction_vs_recovery.json').write_text(json.dumps(report,indent=2),encoding='utf-8')
 print(json.dumps(report,indent=2))

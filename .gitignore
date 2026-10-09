@@ -13,3 +13,5 @@ venv/
 *.h5
 *.hdf5
 *.cloupe
+submission_figures/
+verification_outputs/

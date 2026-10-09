@@ -44,8 +44,9 @@ for n in sizes:
                  'seconds_median':float(np.median(times)),'seconds_min':float(min(times)),'seconds_max':float(max(times)),
                  'python_tracemalloc_peak_bytes_median':int(np.median(peaks))})
 
-result={'artifact':'ATI v0.3.0 synthetic scaling development benchmark','date':'2026-10-01','development_only':True,
+result={'artifact':'ATI Reference synthetic scaling check','development_only':True,
         'repetitions':reps,'rows':rows,'python':sys.version,'numpy':np.__version__,'platform':platform.platform(),
         'warning':'Synthetic CPU development timing only; not a claim of atlas-scale production scalability. tracemalloc excludes some native BLAS allocations.'}
-Path('PERFORMANCE_DEVELOPMENT.json').write_text(json.dumps(result,indent=2,sort_keys=True),encoding='utf-8')
+Path('verification_outputs').mkdir(parents=True,exist_ok=True)
+Path('verification_outputs/scaling_check.json').write_text(json.dumps(result,indent=2,sort_keys=True),encoding='utf-8')
 print(json.dumps(rows,indent=2))

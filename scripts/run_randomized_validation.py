@@ -115,6 +115,7 @@ result={
  'numpy':np.__version__,
  'interpretation':'Randomized numerical validation only. Not formal proof or real-atlas empirical validation.'
 }
-Path('DEVELOPMENT_AUDIT_V04RC6.json').write_text(json.dumps(result,indent=2,sort_keys=True),encoding='utf-8')
+Path('verification_outputs').mkdir(parents=True,exist_ok=True)
+Path('verification_outputs/randomized_validation.json').write_text(json.dumps(result,indent=2,sort_keys=True),encoding='utf-8')
 print(json.dumps({'classification':result['classification'],'counts':counts,'failure_count':len(failures)},indent=2))
 if failures: raise SystemExit(1)

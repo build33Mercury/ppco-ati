@@ -92,7 +92,8 @@ for exp in np.linspace(-13,-8,101):
     eps=float(10**exp); A=np.array([[1.,0.]]); B=np.array([[1.,eps]]); x=exact_recovery_analysis(A,B); threshold.append({'eps':eps,'status':x['numerical_status']})
 counts['threshold_sweep']={'attempted':101,'passed':101,'failed':0}
 
-out={'artifact':'ATI v0.4.0-rc6 robustness stress validation','classification':'PASS' if not failures else 'FAIL','counts':counts,'failure_count':len(failures),'failures':failures[:50],'threshold_sweep':threshold,'python':sys.version,'numpy':np.__version__,'platform':platform.platform()}
-Path('ROBUSTNESS_STRESS_RESULTS.json').write_text(json.dumps(out,indent=2,sort_keys=True))
+out={'artifact':'ATI Reference 0.4.0rc7 robustness stress validation','classification':'PASS' if not failures else 'FAIL','counts':counts,'failure_count':len(failures),'failures':failures[:50],'threshold_sweep':threshold,'python':sys.version,'numpy':np.__version__,'platform':platform.platform()}
+Path('verification_outputs').mkdir(parents=True,exist_ok=True)
+Path('verification_outputs/robustness_validation.json').write_text(json.dumps(out,indent=2,sort_keys=True))
 print(json.dumps({'classification':out['classification'],'counts':counts,'failure_count':len(failures)},indent=2))
 if failures: raise SystemExit(1)
